@@ -5,11 +5,16 @@ var publicSpreadsheetUrl = gOptions.enabled ? gOptions.google_sheet_url : '';
 
 var sessions = {};
 function init() {
-  showInfo();
-  Tabletop.init( { key: publicSpreadsheetUrl,
-    callback: showInfo,
-    simpleSheet: true
-  });
+  
+  window.setInterval(function(){
+    showInfo();
+    Tabletop.init( { key: publicSpreadsheetUrl,
+      callback: showInfo,
+      simpleSheet: true
+    });  
+  }, 5000);
+
+  
 
 }
 function showInfo(data, tabletop) {
